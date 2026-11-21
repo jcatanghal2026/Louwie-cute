@@ -1,0 +1,11 @@
+# Build settings for this project. These take precedence over the values
+# entered in the Netlify UI. Google AI Studio apps are Vite projects, which
+# build with `npm run build` and output to the lowercase `dist` folder.
+[build]
+  # The repository root is the base directory. Setting it here overrides the
+  # placeholder text ("Leave empty") saved in the UI build settings.
+  base = "/"
+  # Run the app's build once its code (package.json) is in the repository.
+  # Until then, publish a placeholder page so deploys don't fail.
+  command = "if [ -f package.json ]; then npm run build; else mkdir -p dist && cp placeholder/index.html dist/index.html; fi"
+  publish = "dist"
